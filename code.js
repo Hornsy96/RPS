@@ -1,3 +1,4 @@
+/* Logic to randomise the computers choice */
 function getComputerChoice() {
     const random = Math.floor(Math.random() * 3) + 1;
       if (random === 1) {
@@ -13,6 +14,8 @@ function getComputerChoice() {
 const computerChoice = getComputerChoice();
 console.log(computerChoice)
 
+
+/* This is the basic game logic */
 function playGame(playerSelection, computerSelection) {
     const userInput = prompt('Which will you throw?');
     playerSelection = userInput.toLowerCase();
@@ -36,9 +39,32 @@ function playGame(playerSelection, computerSelection) {
         }  
     }
     
-        
+/* This is the function to play the game, using a loop to play bets of 5*/       
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
 
+    for (let i = 1; i <= 5; i++){
+        const result = playGame();
+        console.log(result);
 
-const result = playGame('rock', 'paper');
+        if (result.includes('Win')) {
+            playerScore++;  
+        } else if (result.includes('Lose'))
+            computerScore++;
+        }
 
-console.log(result);
+    console.log(`Player score: ${playerScore}`);
+    console.log(`Computer score: ${computerScore}`);
+
+    if (playerScore > computerScore) {
+        return 'You win!'
+    } else if (computerScore > playerScore) {
+        return 'You lose!'
+    } else {
+        return 'Tie game..'
+    }
+
+    }
+
+    console.log(game());
