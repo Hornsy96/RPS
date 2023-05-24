@@ -12,7 +12,7 @@ function getComputerChoice() {
 }
 
 const computerChoice = getComputerChoice();
-console.log(computerChoice)
+/*console.log(computerChoice)*/
 
 
 /* This is the basic game logic */
